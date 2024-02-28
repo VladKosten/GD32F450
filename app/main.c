@@ -36,6 +36,7 @@ OF SUCH DAMAGE.
 #include "systick.h"
 #include <stdio.h>
 #include "main.h"
+#include "gd32f4xx_libopt.h"
 
 
 
@@ -51,5 +52,7 @@ int main(void)
     systick_config();
 
     while(1) {
+        /* insert your code here */
+        dac_data_set(DAC_ALIGN_12B_R, 0x7FF0, 0x7FF0, 0x7FF0);
     }
 }

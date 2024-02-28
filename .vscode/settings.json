@@ -5,6 +5,7 @@
         "gd32f4xx_libopt.h": "c",
         "gd32f4xx_exmc.h": "c",
         "gd32f4xx_usart.h": "c",
-        "gd32f4xx_adc.h": "c"
+        "gd32f4xx_adc.h": "c",
+        "gd32f4xx_rcu.h": "c"
     }
 }
