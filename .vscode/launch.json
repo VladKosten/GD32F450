@@ -3,13 +3,12 @@
         {
             "showDevDebugOutput": "parsed",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/hghg.elf",
-            "name": "Debug ",
+            "executable": "./build/GD32F450VET6.elf",
+            "name": "Debug",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "preLaunchTask": "",
-            "device": "stm32f407",
+            "preLaunchTask": "CMake Build Project",
             "configFiles": [
                 "openocd.cfg"
             ]
@@ -17,13 +16,11 @@
         {
             "showDevDebugOutput": "parsed",
             "cwd": "${workspaceRoot}",
-            "executable": "./build/hghg.elf",
-            "name": "Attach STM32",
+            "executable": "./build/GD32F450VET6.elf",
+            "name": "Attach",
             "request": "attach",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "preLaunchTask": "Build STM",
-            "device": "stm32f407",
             "configFiles": [
                 "openocd.cfg"
             ]

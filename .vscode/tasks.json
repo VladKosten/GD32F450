@@ -43,7 +43,10 @@
 		{
 			"label": "Flash with OpenOCD",
 			"type": "shell",
-			"command": "openocd -f openocd.cfg -c \"program build/hghg.elf verify reset exit\"",
+			"dependsOn": [
+				"CMake Build Project"
+			],
+			"command": "openocd -f openocd.cfg -c \"program build/GD32F450VET6.elf verify reset exit\"",
 			"options": {
 				"cwd": "${workspaceRoot}"
 			},
