@@ -55,4 +55,7 @@ sudo apt install openocd
 1. Clone the repository
 2. Install the dependencies and the required extensions for VSCode (if you don't have them already)
 3. Open the project with VSCode
-
+4. Press `Ctrl+Shift+B` and select `CMake Configure Project:Debug(Release)`
+5. Press `Ctrl+Shift+B` and select `CMake Build Project` to build the project(Ninja build system)
+6. To flash the microcontroller, press `Ctrl+Shift+B` and select `Flash with OpenOCD` (You need to have OpenOCD installed)
+7. To debug the microcontroller, press `F5` or select `Debug` -> `Debug(Attach)`

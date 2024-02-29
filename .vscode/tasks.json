@@ -2,9 +2,22 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "CMake Generate Project",
+			"label": "CMake Configure Project(Ninja):Debug",
 			"type": "shell",
-			"command": "cmake -G\"Ninja\" -B build -S .",
+			"command": "cmake -G\"Ninja\" -B build -S . -DCMAKE_BUILD_TYPE=Debug",
+			"options": {
+				"cwd": "${workspaceRoot}"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"label": "CMake Configure Project(Ninja):Release",
+			"type": "shell",
+			"command": "cmake -G\"Ninja\" -B build -S . -DCMAKE_BUILD_TYPE=Release",
 			"options": {
 				"cwd": "${workspaceRoot}"
 			},
