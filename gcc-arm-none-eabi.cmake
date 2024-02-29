@@ -1,8 +1,4 @@
-# We have deal with embedded systems, so we need to use a cross-compiler
-
-set(CMAKE_SYSTEM_NAME Generic)
-set(CMAKE_SYSTEM_PROCESSOR arm)
-
+# We have deal with cross-compiling
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # Set the toolchain prefix
@@ -10,8 +6,6 @@ set(TOOLCHAIN_PREFIX arm-none-eabi-)
 
 set(FLAGS
     "-fdata-sections -ffunction-sections --specs=nano.specs -Wl,--gc-sections")
-set(CPP_FLAGS
-    "-fno-rtti -fno-exceptions -fno-threadsafe-statics")
 
 set(CMAKE_C_COMPILER ${TOOLCHAIN_PREFIX}gcc ${FLAGS})
 set(CMAKE_ASM_COMPILER ${CMAKE_C_COMPILER})

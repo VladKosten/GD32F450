@@ -1,6 +1,6 @@
 /*!
-    \file    systick.h
-    \brief   the header file of systick
+    \file    main.c
+    \brief   led spark with systick
 
     \version 2024-01-15, V3.2.0, firmware for GD32F4xx
 */
@@ -31,17 +31,38 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
 OF SUCH DAMAGE.
 */
+#include <stdio.h>
+#include "app.h"
 
-#ifndef SYS_TICK_H
-#define SYS_TICK_H
+#include "gd32f4xx.h"
+#include "gd32f4xx_libopt.h"
 
-#include <stdint.h>
 
-/* configure systick */
-void systick_config(void);
-/* delay a time in milliseconds */
-void delay_1ms(uint32_t count);
-/* delay decrement */
-void delay_decrement(void);
 
-#endif /* SYS_TICK_H */
+void systick_config(void)
+{
+    /* setup systick timer for 1000Hz interrupts */
+    if(SysTick_Config(SystemCoreClock / 1000U)) {
+        /* capture error */
+        while(1) {
+        }
+    }
+    /* configure the systick handler priority */
+    NVIC_SetPriority(SysTick_IRQn, 0x00U);
+}
+
+/*!
+    \brief    main function
+    \param[in]  none
+    \param[out] none
+    \retval     none
+*/
+int main(void)
+{
+
+    systick_config();
+
+    while(1) {
+        /* insert your code here */
+    }
+}
