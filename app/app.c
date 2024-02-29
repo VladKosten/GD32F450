@@ -38,7 +38,6 @@ OF SUCH DAMAGE.
 #include "gd32f4xx_libopt.h"
 
 
-
 void systick_config(void)
 {
     /* setup systick timer for 1000Hz interrupts */

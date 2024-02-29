@@ -40,7 +40,7 @@ target_compile_options(CompileOptions INTERFACE -Wall                           
                                                 -mfpu=fpv4-sp-d16               # set the FPU type
                                                 -mfloat-abi=hard)               # set the floating-point ABI)
 
-# Set the compile options.
+# Set the compile options options based on the build type (Debug or Release)
 IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_options(CompileOptions INTERFACE -O0      # no optimization
                                                     -g3      # generate debug information
@@ -51,6 +51,7 @@ ELSE ()
                                                     -ggdb0)  # no debugging information
 ENDIF()
 
+# Set the link options.
 target_link_options(CompileOptions INTERFACE -T${LINKER_SCRIPT}                 # set the linker script
                                              -Wl,-Map=${CMAKE_PROJECT_NAME}.map # generate a map file
                                              --specs=nosys.specs                 # use the nosys.specs file
@@ -71,7 +72,6 @@ add_subdirectory(app)
 add_executable(${CMAKE_PROJECT_NAME} ${STARTUP_SCRIPT})
 
 # Add the library targets to the executable target.
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE App
-                                            PRIVATE CompileOptions
-                                            )
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE CompileOptions
+                                            PRIVATE App)
 

@@ -1,4 +1,6 @@
 # We have deal with cross-compiling
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR arm)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # Set the toolchain prefix
@@ -13,4 +15,4 @@ set(CMAKE_OBJCOPY ${TOOLCHAIN_PREFIX}objcopy)
 set(CMAKE_SIZE ${TOOLCHAIN_PREFIX}size)
 set(CMAKE_OBJDUMP ${TOOLCHAIN_PREFIX}objdump)
 
-set(CMAKE_EXECUTABLE_SUFFIX_C ".elf")
+set(CMAKE_EXECUTABLE_SUFFIX_ASM ".elf")
